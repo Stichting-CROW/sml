@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "NEN 2660"
+title: "SML"
 permalink: /
 ---
 
@@ -8,7 +8,7 @@ permalink: /
 
 These pages provide a way to lookup and dereference the concepts of 
 <a href='-/downloads#norm' class='link dim underline-hover blue'>
-NEN 2660-2:2022</a>.
+CEN-EN 176322</a>.
 
 ***
 

@@ -8,9 +8,9 @@ enableYasgui: true
 wider: true
 ---
 
-## Query NEN 2660-2 using SPARQL
+## Query CEN-EN 17632 using SPARQL
 
-The NEN 2660-2 ontology is available as static, downloadable [files][downloads].
+The CEN-EN 17632 ontology is available as static, downloadable [files][downloads].
 For dynamic integration, exploration and queries, [Stichting CROW][crow] provides a public SPARQL-endpoint at:
 
 <center><b>https://w3id.org/sml/sparql</b></center>

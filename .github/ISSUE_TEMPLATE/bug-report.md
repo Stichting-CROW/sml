@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help improve NEN 2660. Changes to normative sources may not be approved.
+about: Create a report to help improve CEN-EN 17632. Changes to normative sources may not be approved.
 title: ""
 labels: bug
 assignees: ""

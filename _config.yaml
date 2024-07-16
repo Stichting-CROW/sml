@@ -2,7 +2,7 @@ url: "https://w3id.org"
 baseurl: /sml
 remote_theme: redmer/minimaal
 title: Semantic Modelling and Linking
-description: "NEN-EN 17632-1+2: Semantic Modelling and Linking "
+description: "CEN-EN 17632 Part 1+2: Semantic Modelling and Linking"
 lang: en
 timezone: Europe/Amsterdam
 repo: https://github.com/stichting-crow/sml

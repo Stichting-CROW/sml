@@ -14,12 +14,12 @@ sortkey: 999
 
 The usage of different files and ontologies is described in
 <a href='#norm' class='link dim underline-hover blue'>
-NEN 2660-2:2022</a>.
+CEN-EN 17632</a>.
 This page provides:
 
 - <a href="{{ '#' | append: norm1.anchorid }}" class='link dim underline-hover blue b'>
 {{ site.data.downloads | where: "norminform", "normative" | size }}
-normative files</a>, that form the base of the NEN 2660-2:2022.
+normative files</a>, that form the base of the CEN-EN 17632.
 
 - <a href="{{ '#' | append: info1.anchorid }}" class='link dim underline-hover blue b'>
 {{ site.data.downloads | where: "norminform", "informative" | size }}
@@ -91,17 +91,13 @@ example files</a>, that demonstrate usage.
 
 ## Norm
 
-The norm NEN 2660 is published in May 2022.
-It is available at
-<a href='https://www.nen.nl/nen-2660-2-2022-nl-291667' class='link dim underline-hover blue'>
-NEN Norm</a>.
+The norm CEN-EN 17632 is available at
+<a href='https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_PROJECT:67839&cs=13BE091B11208910B30E53F9215AFDE96' class='link dim underline-hover blue'>
+Standard</a>.
 
 ---
 
-Hosting provided by
-<a href='https://bimloket.nl' class='link dim underline-hover blue'>
-BIM Loket</a>.  
-Publication website by
+Hosting and Publication website provided by
 <a href='https://crow.nl' class='link dim underline-hover blue'>
 CROW</a>.
 
