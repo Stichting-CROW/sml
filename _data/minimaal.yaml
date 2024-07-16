@@ -1,16 +1,16 @@
 links1:
-  - label: Norm
-    url: https://www.nen.nl/nen-2660-2-2022-nl-291667
-  - label: 'NEN'
-    url: https://nen.nl
+  - label: Standard
+    url: https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_PROJECT:67839&cs=13BE091B11208910B30E53F9215AFDE96
+  - label: "CEN/TC 442"
+    url: https://standards.cencenelec.eu/dyn/www/f?p=205:7:0::::FSP_ORG_ID:1991542&cs=100E563A3950D53807585F6A443ACB202
 links2:
-  - label: 'BIM Loket'
-    url: https://bimloket.nl
-  - label: 'CROW'
+  - label: "NEN"
+    url: https://www.nen.nl/nen-en-17632-1-2022-en-304869
+  - label: "CROW"
     url: https://crow.nl
-  
-copyright_statement: "NEN 2660-2:2022"
+
+copyright_statement: "CEN-EN 17632-1:2022"
 
 sosumi:
   - label: See source on GitHub
-    url: https://github.com/bimloket/nen2660/
+    url: https://github.com/Stichting-CROW/sml/

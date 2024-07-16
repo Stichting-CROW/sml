@@ -1,10 +1,10 @@
 RewriteEngine on
 
 # Redirect for specific graphs cq. profiles
-RewriteRule ^skos/def$ https://docs.crow.nl/sml/data/nen2660-skos.ttl [R=302,L]
-RewriteRule ^rdfs/def$ https://docs.crow.nl/sml/data/nen2660-rdfs.ttl [R=302,L]
-RewriteRule ^owl/def$ https://docs.crow.nl/sml/data/nen2660-owl.ttl [R=302,L]
-RewriteRule ^shacl/def$ https://docs.crow.nl/sml/data/nen2660-shacl.ttl [R=302,L]
+RewriteRule ^skos/def$ https://docs.crow.nl/sml/data/sml-skos.ttl [R=302,L]
+RewriteRule ^rdfs/def$ https://docs.crow.nl/sml/data/sml-rdfs.ttl [R=302,L]
+RewriteRule ^owl/def$ https://docs.crow.nl/sml/data/sml-owl.ttl [R=302,L]
+RewriteRule ^shacl/def$ https://docs.crow.nl/sml/data/sml-shacl.ttl [R=302,L]
 
 # Redirect vocab/def/ URIs to the human readable description... 
 RewriteCond "%{HTTP_ACCEPT}" "text/html"
@@ -15,7 +15,7 @@ RewriteCond "%{HTTP_ACCEPT}" "text/html"
 RewriteRule ^term$ https://docs.crow.nl/sml/def  [R=302,L]
 
 RewriteCond "%{HTTP_ACCEPT}" "application/trig"
-RewriteRule ^term$ https://docs.crow.nl/sml/data/concat/nen2660.trig  [R=302,L]
+RewriteRule ^term$ https://docs.crow.nl/sml/data/concat/sml.trig  [R=302,L]
 
 # Finally, redirect for all else
-RewriteRule ^$ https://docs.crow.nl/sml/data/concat/nen2660.ttl [R=302,L]
+RewriteRule ^$ https://docs.crow.nl/sml/data/concat/sml.ttl [R=302,L]

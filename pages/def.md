@@ -1,6 +1,6 @@
 ---
 layout: page
-title: NEN 2660
+title: SML
 permalink: /def.html
 excerpt: Normative classes and properties (RDFS, OWL, and SHACL)
 sortkey: 1

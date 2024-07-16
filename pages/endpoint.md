@@ -13,7 +13,7 @@ wider: true
 The NEN 2660-2 ontology is available as static, downloadable [files][downloads].
 For dynamic integration, exploration and queries, [Stichting CROW][crow] provides a public SPARQL-endpoint at:
 
-<center><b>https://w3id.org/nen2660/sparql</b></center>
+<center><b>https://w3id.org/sml/sparql</b></center>
 
 [crow]: https://www.crow.nl
 [yasgui]: https://triply.cc/docs/yasgui
@@ -26,7 +26,7 @@ For dynamic integration, exploration and queries, [Stichting CROW][crow] provide
 <script>
   const yasgui = new Yasgui(document.getElementById("yasgui"), {
     requestConfig: {
-      endpoint: "https://w3id.org/nen2660/sparql",
+      endpoint: "https://w3id.org/sml/sparql",
       method: "GET"
     }
   });
@@ -41,8 +41,8 @@ LIMIT 25
 `);
   const yasqe = yasgui.getTab().yasqe;
   yasqe.addPrefixes({
-    "nen2660":"https://w3id.org/nen2660/def#",
-    "nen2660-term":"https://w3id.org/nen2660/term#",
+    "sml":"https://w3id.org/sml/def#",
+    "sml-term":"https://w3id.org/sml/term#",
     "owl":"http://www.w3.org/2002/07/owl#",
     "quantitykind":"http://qudt.org/vocab/quantitykind/",
     "qudt":"http://qudt.org/schema/qudt/",

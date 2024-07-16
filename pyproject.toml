@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "nen2660"
+name = "sml"
 version = "0.9.0"
 description = ""
 authors = ["Redmer Kronemeijer <redmer.kronemeijer@crow.nl>"]
