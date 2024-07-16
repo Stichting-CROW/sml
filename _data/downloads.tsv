@@ -18,4 +18,3 @@ sml-example-rdfs	l	example	text/turtle	This example file contains data according
 sml-example-shacl	m	example	text/turtle	This example file contains data according to sml-shacl.	/data/examples/sml-example-shacl.ttl	ex5	sml:</code><br> <code>sml-term:		
 sml-example-skos	n	example	text/turtle	This example file contains data according to sml-owskosl.	/data/examples/sml-example-skos.ttl	ex6	sml:</code><br> <code>sml-term:		
 sml2-example-owl.ttl	o	example	text/turtle	This example file contains data according to sml2-owl.	/data/examples/sml2-example-owl.ttl	ex7	sml:</code><br> <code>sml-term:		
-	
