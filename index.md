@@ -4,10 +4,10 @@ title: "SML"
 permalink: /
 ---
 
-## Rules for information modelling of the built environment
+## Building information modelling (BIM) - Semantic modelling and linking (SML)
 
 These pages provide a way to lookup and dereference the concepts of 
-<a href='-/downloads#norm' class='link dim underline-hover blue'>
+<a href='-/downloads#standard' class='link dim underline-hover blue'>
 CEN-EN 176322</a>.
 
 ***

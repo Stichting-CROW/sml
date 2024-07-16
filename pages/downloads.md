@@ -13,7 +13,7 @@ sortkey: 999
 {% assign ex1 = site.data.downloads | where: "norminform", "example" | sort: "sortkey" | first %}
 
 The usage of different files and ontologies is described in
-<a href='#norm' class='link dim underline-hover blue'>
+<a href='#standard' class='link dim underline-hover blue'>
 CEN-EN 17632</a>.
 This page provides:
 
@@ -89,9 +89,9 @@ example files</a>, that demonstrate usage.
 
 ---
 
-## Norm
+## Standard
 
-The norm CEN-EN 17632 is available at
+The standard CEN-EN 17632 is available at
 <a href='https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_PROJECT:67839&cs=13BE091B11208910B30E53F9215AFDE96' class='link dim underline-hover blue'>
 Standard</a>.
 
