@@ -52,7 +52,7 @@ def generate_quad_files():
         g.parse(str(input_file), format=input_file.suffix[1:])
 
     bind(trig)
-    trig.serialize("./data/concat/nen2660.trig", format="trig-ns", encoding="utf-8")
+    trig.serialize("./data/concat/sml.trig", format="trig-ns", encoding="utf-8")
 
 
 def generate_triple_files():
@@ -61,9 +61,9 @@ def generate_triple_files():
     for input_file in Path("./data/").glob("*.ttl"):
         g.parse(str(input_file), format=input_file.suffix[1:])
 
-    g.serialize("./data/concat/nen2660.rdf", format="xml", encoding="utf-8")
-    g.serialize("./data/concat/nen2660.ttl", format="ttl", encoding="utf-8")
-    g.serialize("./data/concat/nen2660.json", format="json-ld", encoding="utf-8")
+    g.serialize("./data/concat/sml.rdf", format="xml", encoding="utf-8")
+    g.serialize("./data/concat/sml.ttl", format="ttl", encoding="utf-8")
+    g.serialize("./data/concat/sml.json", format="json-ld", encoding="utf-8")
 
 
 def generate_lov_files():
@@ -75,7 +75,7 @@ def generate_lov_files():
     g.parse("./data/metadata/lov.ttl", format="ttl")
 
     g.serialize(
-        "./data/concat/nen2660-lov-metadata.ttl", format="ttl", encoding="utf-8"
+        "./data/concat/sml-lov-metadata.ttl", format="ttl", encoding="utf-8"
     )
 
 
