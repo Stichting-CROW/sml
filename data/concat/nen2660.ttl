@@ -84,16 +84,16 @@ sml:ConcreteConcept a rdfs:Class,
     rdfs:subClassOf sml:TopConcept ;
     skos:definition "Concept that forms a manifestation and a demarcation in a concrete space-time. A concrete concept has a life cycle"@en ;
     skos:prefLabel "Concrete concept"@en ;
-    sh:property [ sh:class sml:GeometricEntity ;
+    sh:property [ sh:class rdfs:Container ;
+            sh:path sml:hasPartsGroup ],
+        [ sh:class sml:GeometricEntity ;
             sh:path sml:hasBoundary ],
         [ sh:class sml:GeometricEntity ;
             sh:path sml:hasInterior ],
         [ sh:class time:TemporalEntity ;
             sh:path sml:hasTemporalEntity ],
         [ sh:class sml:ConcreteConcept ;
-            sh:path sml:hasPart ],
-        [ sh:class rdfs:Container ;
-            sh:path sml:hasPartsGroup ] .
+            sh:path sml:hasPart ] .
 
 sml:Connection a rdfs:Class,
         owl:Class,
@@ -303,14 +303,14 @@ sml:PhysicalObject a rdfs:Class,
     rdfs:subClassOf sml:Object ;
     skos:definition "Object that exists or may exist within physical 4D space-time. A physical object forms a manifestation and a demarcation of matter and/or energy, and is (in)directly perceptible by the senses"@en ;
     skos:prefLabel "Physical object"@en ;
-    sh:property [ sh:class sml:InformationObject ;
-            sh:path sml:isDescribedBy ],
-        [ sh:class sml:Activity ;
-            sh:path sml:executes ],
-        [ sh:class sml:PhysicalObject ;
+    sh:property [ sh:class sml:PhysicalObject ;
             sh:path sml:isConnectedTo ],
         [ sh:class sml:Interaction ;
-            sh:path sml:participatesIn ] .
+            sh:path sml:participatesIn ],
+        [ sh:class sml:InformationObject ;
+            sh:path sml:isDescribedBy ],
+        [ sh:class sml:Activity ;
+            sh:path sml:executes ] .
 
 sml:PlannedEntity a rdfs:Class,
         owl:Class,
@@ -518,12 +518,12 @@ sml:TopConcept a rdfs:Class,
     rdfs:seeAlso sml-term:TopConcept ;
     skos:definition "The most generic concept"@en ;
     skos:prefLabel "Top concept"@en ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class sml:Requirement ;
+            sh:path sml:hasRequirement ],
+        [ sh:datatype xsd:string ;
             sh:path sml:abbreviation ],
         [ sh:class sml:InformationObject ;
-            sh:path sml:isDescribedBy ],
-        [ sh:class sml:Requirement ;
-            sh:path sml:hasRequirement ] .
+            sh:path sml:isDescribedBy ] .
 
 sml:TransferType a rdfs:Class,
         owl:Class,

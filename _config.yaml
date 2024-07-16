@@ -17,6 +17,10 @@ staticld_ghpages:
     - data/sml-rdfs.ttl
     - data/sml-shacl.ttl
     - data/sml-skos.ttl
+    - data/sml2-owl.ttl
+    - data/sml2-rdfs.ttl
+    - data/sml2-shacl.ttl
+    - data/sml2-skos.ttl
   onto_base: "https://w3id.org/sml/def#"
   vocab_base: "https://w3id.org/sml/term#"
   linked_ns:
@@ -24,6 +28,10 @@ staticld_ghpages:
     - "sml-term"
   graph_order:
     - data/sml-skos.ttl
+    - data/sml2-skos.ttl
     - data/sml-rdfs.ttl
+    - data/sml2-rdfs.ttl
     - data/sml-owl.ttl
+    - data/sml2-owl.ttl
     - data/sml-shacl.ttl
+    - data/sml2-shacl.ttl
