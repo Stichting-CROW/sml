@@ -1,0 +1,63 @@
+# baseURI: https://w3id.org/sml-example/id
+# imports: https://w3id.org/sml-example/skos/term
+# imports: https://w3id.org/sml-example/rdfs/def
+# imports: https://w3id.org/sml-example/owl/def
+# imports: https://w3id.org/sml-example/shacl/def
+# prefix: ex
+
+@prefix exdata: <https://w3id.org/sml-example/id#> .
+@prefix ex: <https://w3id.org/sml-example/def#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sml: <https://w3id.org/sml/def#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/sml-example/id>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sml-example/skos/term> ;
+  owl:imports <https://w3id.org/sml-example/rdfs/def> ;
+  owl:imports <https://w3id.org/sml-example/owl/def> ;
+  owl:imports <https://w3id.org/sml-example/shacl/def> ;
+.
+
+exdata:Bridge_1
+  a ex:Bridge ;
+  sml:hasPart exdata:Deck_1 ;
+  ex:currentlyServingVehicle exdata:Vehicle_1 ;
+  ex:height [
+      rdf:value "50.0"^^xsd:double ;
+      sml:unit unit:M ;
+    ] ;
+.
+exdata:Deck_1
+  a ex:Deck ;
+  sml:hasPart exdata:Slab_1 ;
+  sml:hasPart exdata:Slab_2 ;
+  sml:hasPart exdata:Slab_3 ;
+.
+exdata:Slab_1
+  a ex:Slab ;
+.
+exdata:Slab_2
+  a ex:Slab ;
+.
+exdata:Slab_3
+  a ex:Slab ;
+.
+exdata:Vehicle_1
+  a ex:Vehicle ;
+  ex:hasLegalSpeed true ;
+  ex:loadLevel ex:Heavy ;
+  ex:velocity [
+      rdf:value "128.0"^^xsd:double ;
+      sml:unit unit:KiloM-PER-HR ;
+      ex:accuracy [
+          rdf:value "0.9"^^xsd:double ;
+        ] ;
+    ] ;
+.

@@ -1,0 +1,88 @@
+# baseURI: https://w3id.org/sml-example/shacl/def
+# imports: https://w3id.org/sml/shacl/def
+# imports: https://w3id.org/sml-example/rdfs/def
+# imports: http://www.w3.org/ns/shacl
+# imports: http://qudt.org/schema/qudt
+# imports: http://qudt.org/vocab/quantitykind
+# imports: http://qudt.org/vocab/unit
+# imports: http://www.w3.org/2004/02/skos/core
+# imports: https://www.w3.org/2006/time
+# prefix: ex
+
+@prefix ex: <https://w3id.org/sml-example/def#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sml: <https://w3id.org/sml/def#> .
+
+<https://w3id.org/sml-example/shacl/def>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sml/shacl/def> ;
+  owl:imports <https://w3id.org/sml-example/rdfs/def> ;
+  owl:imports <http://www.w3.org/ns/shacl> ;
+  owl:imports <http://qudt.org/schema/qudt> ;
+  owl:imports <http://qudt.org/vocab/quantitykind> ;
+  owl:imports <http://qudt.org/vocab/unit> ;
+  owl:imports <https://www.w3.org/2006/time> ;
+.
+ex:Bridge
+  a sh:NodeShape ;
+  sh:property [
+    sh:path ex:height ;
+    sh:minCount 1 ;
+    ] ;
+  sh:property [
+    sh:path sml:hasPart ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:class ex:Deck ;
+    ] ;
+.
+ex:Deck
+  a sh:NodeShape ;
+  sh:property [
+    sh:path sml:hasPart ;
+    sh:minCount 1 ;
+    sh:class ex:Slab ;
+    ] ;
+.
+ex:Vehicle
+  a sh:NodeShape ;
+  sh:property [
+    sh:path ex:loadLevelType ;
+    sh:class ex:LoadLevelType ;
+    sh:in (ex:Light ex:Normal ex:Heavy ) ;
+    ] ;
+  sh:property [
+    sh:path ex:hasLegalSpeed ;
+    sh:datatype xsd:boolean ;
+    ] ;
+.
+[
+  a sh:NodeShape ;
+  sh:class sml:QuantityValue ;
+  sh:targetObjectsOf sml:accuracy ;
+].
+[
+  a sh:NodeShape ;
+  sh:class ex:Vehicle ;
+  sh:targetObjectsOf sml:currentlyServingVehicle ;
+].
+[
+  a sh:NodeShape ;
+  sh:class sml:QuantityValue ;
+  sh:targetObjectsOf sml:height ;
+].
+[
+  a sh:NodeShape ;
+  sh:class sml:QuantityValue ;
+  sh:targetObjectsOf sml:velocity ;
+].
+

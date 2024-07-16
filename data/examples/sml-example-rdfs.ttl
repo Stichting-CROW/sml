@@ -1,0 +1,119 @@
+# baseURI: https://w3id.org/sml-example/rdfs/def
+# imports: https://w3id.org/sml/rdfs/def
+# prefix: ex
+
+@prefix ex: <https://w3id.org/sml-example/def#> .
+@prefix ex-term: <https://w3id.org/sml-example/term#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sml: <https://w3id.org/sml/def#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/sml-example/rdfs/def>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sml/rdfs/def> ;
+.
+ex:Bridge
+  a rdfs:Class ;
+  rdfs:seeAlso ex-term:Bridge ;
+  rdfs:subClassOf sml:PhysicalObject ;
+  skos:definition "A structure carrying a road, path, railway, etc. across a river, road, or other obstacle"@en ;
+  skos:prefLabel "Bridge"@en ;
+.
+ex:Deck
+  a rdfs:Class ;
+  rdfs:seeAlso ex-term:Deck ;
+  rdfs:subClassOf sml:PhysicalObject ;
+  skos:definition "The surface of a bridge"@en ;
+  skos:prefLabel "Deck"@en ;
+.
+ex:Heavy
+  a ex:LoadLevelType ;
+  rdfs:seeAlso ex-term:Heavy ;
+  skos:prefLabel "Heavy"@en ;
+.
+ex:Light
+  a ex:LoadLevelType ;
+  rdfs:seeAlso ex-term:Light ;
+  skos:prefLabel "Light"@en ;
+.
+ex:LoadLevelType
+  a rdfs:Class ;
+  rdfs:seeAlso ex-term:LoadLevelType ;
+  a sml:EnumerationType ;
+  skos:prefLabel "Load level type"@en ;
+.
+ex:NonGeometricProperties
+  a rdfs:Container ;
+  rdfs:seeAlso ex-term:NonGeometricProperties ;
+  rdfs:member ex:loadLevelType ;
+  rdfs:member ex:velocity ;
+  rdfs:member ex:hasLegalSpeed ;
+  skos:prefLabel "Non-geometric properties"@en ;
+.
+ex:Normal
+  a ex:LoadLevelType ;
+  rdfs:seeAlso ex-term:Normal ;
+  skos:prefLabel "Normal"@en ;
+.
+ex:Slab
+  a rdfs:Class ;
+  rdfs:seeAlso ex-term:Slab ;
+  rdfs:subClassOf sml:PhysicalObject ;
+  skos:definition "A large, thick, flat piece of stone or concrete, typically square or rectangular in shape"@en ;
+  skos:prefLabel "Slab"@en ;
+.
+ex:Vehicle
+  a rdfs:Class ;
+  rdfs:seeAlso ex-term:Vehicle ;
+  rdfs:subClassOf sml:PhysicalObject ;
+  skos:definition "A thing used for transporting people or goods, especially on land, such as a car, lorry, or cart"@en ;
+  skos:prefLabel "Vehicle"@en ;
+.
+ex:accuracy
+  a rdf:Property ;
+  rdfs:seeAlso ex-term:accuracy ;
+  rdfs:range sml:QuantityValue ;
+  skos:prefLabel "accuracy"@en ;
+.
+ex:currentlyServingVehicle
+  a rdf:Property ;
+  rdfs:seeAlso ex-term:currentlyServingVehicle ;
+  rdfs:range ex:Vehicle ;
+  skos:prefLabel "currently serving vehicle"@en ;
+.
+ex:hasLegalSpeed
+  a rdf:Property ;
+  rdfs:domain ex:Vehicle ;
+  rdfs:seeAlso ex-term:hasLegalSpeed ;
+  rdfs:range xsd:boolean ;
+  skos:prefLabel "has legal speed"@en ;
+.
+ex:height
+  a rdf:Property ;
+  rdfs:seeAlso ex-term:height ;
+  rdfs:range sml:QuantityValue ;
+  sml:quantityKind quantitykind:Length ;
+  skos:prefLabel "height"@en ;
+.
+ex:loadLevelType
+  a rdf:Property ;
+  rdfs:domain ex:Vehicle ;
+  rdfs:seeAlso ex-term:loadLevelType ;
+  rdfs:range ex:LoadLevelType ;
+  skos:prefLabel "load level type"@en ;
+.
+ex:velocity
+  a rdf:Property ;
+  rdfs:seeAlso ex-term:velocity ;
+  rdfs:range sml:QuantityValue ;
+  sml:quantityKind quantitykind:Speed ;
+  skos:prefLabel "velocity"@en ;
+.

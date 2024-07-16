@@ -1,0 +1,92 @@
+# baseURI: https://w3id.org/sml-example/skos/term
+# imports: https://w3id.org/sml/skos/term
+# prefix: ex-term
+
+@prefix ex-term: <https://w3id.org/sml-example/term#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sml-term: <https://w3id.org/sml/term#> .
+
+<https://w3id.org/sml-example/skos/term>
+  a skos:ConceptScheme ;
+  owl:imports <https://w3id.org/sml/skos/term> ;
+.
+ex-term:Bridge
+  a skos:Concept ;
+  skos:prefLabel "Bridge"@en ;
+  skos:definition "A structure carrying a road, path, railway, etc. across a river, road, or other obstacle"@en ;
+  skos:broader sml-term:PhysicalObject ;
+.
+ex-term:Deck
+  a skos:Concept ;
+  skos:prefLabel "Deck"@en ;
+  skos:definition "The surface of a bridge"@en ;
+  skos:broader sml-term:PhysicalObject ;
+.
+ex-term:Heavy
+  a skos:Concept ;
+  skos:prefLabel "Heavy"@en ;
+  skos:broader ex-term:LoadLevelType ;
+.
+ex-term:Light
+  a skos:Concept ;
+  skos:prefLabel "Light"@en ;
+  skos:broader ex-term:LoadLevelType ;
+.
+ex-term:LoadLevelType
+  a skos:Concept ;
+  skos:prefLabel "Load level type"@en ;
+  skos:broader sml-term:EnumerationType ;
+.
+ex-term:NonGeometricProperties
+  a skos:Concept ;
+  skos:prefLabel "Non-geometric properties"@en ;
+.
+ex-term:Normal
+  a skos:Concept ;
+  skos:prefLabel "Normal"@en ;
+  skos:broader ex-term:LoadLevelType ;
+.
+ex-term:Slab
+  a skos:Concept ;
+  skos:prefLabel "Slab"@en ;
+  skos:definition "A large, thick, flat piece of stone or concrete, typically square or rectangular in shape"@en ;
+  skos:broader sml-term:PhysicalObject ;
+.
+ex-term:Vehicle
+  a skos:Concept ;
+  skos:prefLabel "Vehicle"@en ;
+  skos:definition "A thing used for transporting people or goods, especially on land, such as a car, lorry, or cart"@en ;
+.
+ex-term:accuracy
+  a skos:Concept ;
+  skos:prefLabel "accuracy"@en ;
+.
+ex-term:currentlyServingVehicle
+  a skos:Concept ;
+  skos:prefLabel "currently serving vehicle"@en ;
+.
+ex-term:hasLegalSpeed
+  a skos:Concept ;
+  skos:prefLabel "has legal speed"@en ;
+.
+ex-term:height
+  a skos:Concept ;
+  skos:prefLabel "height"@en ;
+.
+ex-term:loadLevelType
+  a skos:Concept ;
+  skos:prefLabel "load level type"@en ;
+.
+ex-term:velocity
+  a skos:Concept ;
+  skos:prefLabel "velocity"@en ;
+.

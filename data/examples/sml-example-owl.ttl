@@ -1,0 +1,78 @@
+# baseURI: https://w3id.org/sml-example/owl/def
+# imports: https://w3id.org/sml/owl/def
+# imports: https://w3id.org/sml-example/rdfs/def
+# prefix: ex
+
+@prefix ex: <https://w3id.org/sml-example/def#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sml: <https://w3id.org/sml/def#> .
+
+<https://w3id.org/sml-example/owl/def>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sml/owl/def> ;
+  owl:imports <https://w3id.org/sml-example/rdfs/def> ;
+.
+ex:Bridge
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty ex:height ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onClass ex:Deck ;
+      owl:onProperty sml:hasPart ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+ex:Deck
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass ex:Slab ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+.
+ex:LoadLevelType
+  a owl:Class ;
+  owl:oneOf (
+      ex:Light
+      ex:Normal
+      ex:Heavy
+    ) ;
+.
+ex:Slab
+  a owl:Class ;
+.
+ex:Vehicle
+  a owl:Class ;
+.
+ex:accuracy
+  a owl:ObjectProperty ;
+.
+ex:currentlyServingVehicle
+  a owl:ObjectProperty ;
+.
+ex:hasLegalSpeed
+  a owl:DatatypeProperty ;
+.
+ex:height
+  a owl:ObjectProperty ;
+.
+ex:loadLevelType
+  a owl:ObjectProperty ;
+.
+ex:velocity
+  a owl:ObjectProperty ;
+.

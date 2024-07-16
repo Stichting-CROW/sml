@@ -1,0 +1,41 @@
+# baseURI: https://w3id.org/sml-example/skos-rdfs/def
+# prefix: ex
+
+@prefix ex: <https://w3id.org/sml-example/def#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/sml-example/skos-rdfs/def> a skos:ConceptScheme, owl:Ontology .
+
+ex:Bridge
+  a rdfs:Class, skos:Concept ;
+  skos:prefLabel "Bridge"@en ;
+.
+ex:LoadLevelType
+  a rdfs:Class, skos:Concept ;
+  skos:prefLabel "Load level type"@en ;
+.
+ex:Heavy
+  a ex:LoadLevelType, skos:Concept ;
+  skos:prefLabel "Heavy"@en ;
+.
+ex:Normal
+  a ex:LoadLevelType, skos:Concept ;
+  skos:prefLabel "Normal"@en ;
+.
+ex:Light
+  a ex:LoadLevelType, skos:Concept ;
+  skos:prefLabel "Light"@en ;
+.
+ex:loadLevelType
+  a rdf:Property ;
+  rdfs:range ex:LoadLevelType, skos:Concept ;
+  skos:prefLabel "load level type"@en ;
+.
+ex:MyBridge
+  a ex:Bridge ;
+  ex:loadLevelType ex:Normal ;
+.

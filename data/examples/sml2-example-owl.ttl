@@ -1,0 +1,502 @@
+# baseURI: https://w3id.org/hospital/owl/def
+# imports: https://w3id.org/sml2/owl/def
+# prefix: hos
+
+@prefix hos: <https://w3id.org/hospital/def#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sml: <https://w3id.org/sml/def#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/hospital/owl/def>
+  a owl:Ontology ;
+  owl:imports <https://w3id.org/sml2/owl/def> ;
+.
+
+hos:AllFloors
+  a rdfs:Container ;
+  a [
+      a owl:Restriction ;
+      owl:allValuesFrom hos:Floor ;
+      owl:onProperty rdfs:member ;
+    ] ;
+.
+hos:AllRentableSpaces
+  a rdfs:Container ;
+  a [
+      a owl:Restriction ;
+      owl:allValuesFrom hos:RentableSpace ;
+      owl:onProperty rdfs:member ;
+    ] ;
+.
+hos:AllRentableSurfaces
+  a rdfs:Container ;
+  a [
+      a owl:Restriction ;
+      owl:allValuesFrom [
+          a owl:Class ;
+          rdfs:subClassOf hos:RentableSurface ;
+          rdfs:subClassOf [
+              a owl:Restriction ;
+              owl:hasValue [
+                  rdf:value 80.0 ;
+                  sml:hasUnit unit:M2 ;
+                ] ;
+              owl:onProperty hos:hasSurface ;
+            ] ;
+        ] ;
+      owl:onProperty rdfs:member ;
+    ] ;
+  rdfs:member hos:RentableSurface_1 ;
+  rdfs:member hos:RentableSurface_2 ;
+  hos:hasSurface [
+      rdf:value 1600.0 ;
+      sml:hasUnit unit:M2 ;
+    ] ;
+.
+hos:AllWalls
+  a rdfs:Container ;
+  a [
+      a owl:Restriction ;
+      owl:allValuesFrom hos:Wall ;
+      owl:onProperty rdfs:member ;
+    ] ;
+  rdfs:member hos:ConcreteWall_1 ;
+.
+hos:Attaching
+  a owl:Class ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf sml:Interaction ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue sml:Force ;
+      owl:onProperty sml:transferType ;
+    ] ;
+.
+hos:Attaching_1
+  a hos:Attaching ;
+  hos:adhesiveStrength [
+      a sml:QuantityValue ;
+      rdf:value "300"^^xsd:float ;
+      sml:hasUnit unit:N-PER-MilliM2 ;
+    ] ;
+.
+hos:Building
+  a owl:Class ;
+  rdfs:subClassOf sml:PhysicalObject ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onClass hos:BuildingConstruction ;
+      owl:onProperty sml:hasPart ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onClass hos:IndoorSpatialNetwork ;
+      owl:onProperty sml:hasPart ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+hos:BuildingConstruction
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:Floor ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:Wall ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onClass hos:Foundation ;
+      owl:onProperty sml:hasPart ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+hos:BuildingConstruction_1
+  a hos:BuildingConstruction ;
+  sml:hasPart hos:ConcreteWall_1 ;
+  sml:hasPart hos:Floor_1 ;
+  sml:hasPart hos:Floor_2 ;
+  sml:hasPart hos:Foundation_1 ;
+  sml:hasPartsGroup hos:AllFloors ;
+  sml:hasPartsGroup hos:AllWalls ;
+  sml:hasPartsGroup hos:StuccoRoom_1 ;
+.
+hos:Building_1
+  a hos:Building ;
+  a sml:PlannedEntity ;
+  sml:hasInterior hos:GeometricEntity_1 ;
+  sml:hasPart hos:BuildingConstruction_1 ;
+  sml:hasPart hos:IndoorSpatialNetwork_1 ;
+  sml:hasPartsGroup hos:AllRentableSurfaces ;
+.
+hos:CarryingCapacityOffering
+  a owl:Class ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf sml:Interaction ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue sml:Force ;
+      owl:onProperty sml:transferType ;
+    ] ;
+.
+hos:CarryingCapacityOffering_1
+  a hos:CarryingCapacityOffering ;
+  a sml:FunctionalEntity ;
+.
+hos:Cast
+  a sml:Matter ;
+.
+hos:Concrete
+  a sml:Matter ;
+.
+hos:ConcreteLayer
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue hos:Concrete ;
+      owl:onProperty sml:consistsOf ;
+    ] ;
+.
+hos:ConcreteLayer_1-1
+  a hos:ConcreteLayer ;
+  sml:isConnectedTo hos:StuccoLayer_1-1 ;
+  sml:participatesIn hos:Attaching_1 ;
+.
+hos:ConcreteWall
+  a owl:Class ;
+  rdfs:subClassOf hos:Wall ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:ConcreteLayer ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+.
+hos:ConcreteWall_1
+  a hos:ConcreteWall ;
+  sml:hasPart hos:ConcreteWall_1-1 ;
+  sml:hasPart hos:ConcreteWall_1-2 ;
+.
+hos:ConcreteWall_1-1
+  a hos:ConcreteWall ;
+  sml:hasPart hos:ConcreteLayer_1-1 ;
+  sml:hasPart hos:StuccoLayer_1-1 ;
+.
+hos:ConcreteWall_1-2
+  a hos:ConcreteWall ;
+.
+hos:Deviding
+  a owl:Class ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf sml:Interaction ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue sml:MaterialFlow ;
+      owl:onProperty sml:transferType ;
+    ] ;
+.
+hos:DevidingWall
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+.
+hos:DevidingWall_1-1
+  a hos:DevidingWall ;
+  a sml:Connection ;
+  sml:isConnectedTo hos:InstallationRoom_1 ;
+  sml:isConnectedTo hos:OperationRoom_1 ;
+  sml:isImplementedBy hos:ConcreteWall_1-1 ;
+  sml:participatesIn hos:LightReflecting_1 ;
+.
+hos:Deviding_1
+  a hos:Deviding ;
+.
+hos:Floor
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+.
+hos:FloorSurface
+  a owl:Class ;
+  rdfs:subClassOf sml:Interface ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:Floor ;
+      owl:onProperty sml:connectsObject ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:Room ;
+      owl:onProperty sml:connectsObject ;
+    ] ;
+.
+hos:FloorSurface_1
+  a hos:FloorSurface ;
+  sml:connectsObject hos:Floor_1 ;
+  sml:connectsObject hos:Room_1 ;
+.
+hos:FloorSurface_2
+  a hos:FloorSurface ;
+  sml:connectsObject hos:Floor_2 ;
+  sml:connectsObject hos:Room_2 ;
+.
+hos:Floor_1
+  a hos:Floor ;
+  sml:participatesIn hos:CarryingCapacityOffering_1 ;
+.
+hos:Floor_2
+  a hos:Floor ;
+.
+hos:Foundation
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom hos:FoundationConstruction ;
+      owl:onProperty sml:isImplementedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:FoundationWall ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+.
+hos:FoundationConstruction
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:Wall ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+.
+hos:FoundationConstruction_1
+  a hos:FoundationConstruction ;
+  sml:hasPart hos:ConcreteWall_1 ;
+  sml:hasPart hos:ConcreteWall_2 ;
+.
+hos:FoundationWall
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom hos:Wall ;
+      owl:onProperty sml:isImplementedBy ;
+    ] ;
+.
+hos:FoundationWall_1
+  a hos:FoundationWall ;
+  sml:isImplementedBy hos:ConcreteWall_1 ;
+.
+hos:Foundation_1
+  a hos:Foundation ;
+  sml:hasPart hos:FoundationWall_1 ;
+  sml:isImplementedBy hos:FoundationConstruction_1 ;
+.
+hos:GeometricEntity_1
+  a sml:GeometricEntity ;
+.
+hos:Hospital
+  a owl:Class ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf sml:PhysicalObject ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom hos:Building ;
+      owl:onProperty sml:isImplementedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:InstallationRoom ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:OperationRoom ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+.
+hos:Hospital_1
+  a hos:Hospital ;
+  a sml:PlannedEntity ;
+  sml:hasPart hos:InstallationRoom_1 ;
+  sml:hasPart hos:OperationRoom_1 ;
+  sml:isImplementedBy hos:Building_1 ;
+.
+hos:IndoorSpatialNetwork
+  a owl:Class ;
+  rdfs:subClassOf sml:SpatialRegion ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass hos:Room ;
+      owl:onProperty sml:hasPart ;
+    ] ;
+.
+hos:IndoorSpatialNetwork_1
+  a hos:IndoorSpatialNetwork ;
+  sml:hasPart hos:Room_1 ;
+  sml:hasPart hos:Room_2 ;
+  sml:hasPartsGroup hos:AllRentableSpaces ;
+.
+hos:InstallationRoom
+  a owl:Class ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf sml:SpatialRegion ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom hos:Room ;
+      owl:onProperty sml:isImplementedBy ;
+    ] ;
+.
+hos:InstallationRoom_1
+  a hos:InstallationRoom ;
+  sml:isImplementedBy hos:Room_2 ;
+  sml:participatesIn hos:Deviding_1 ;
+  sml:participatesIn hos:SoundDampening_1 ;
+.
+hos:LightReflecting
+  a owl:Class ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf sml:Interaction ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue sml:EnergyFlow ;
+      owl:onProperty sml:transferType ;
+    ] ;
+.
+hos:LightReflecting_1
+  a hos:LightReflecting ;
+.
+hos:OperationRoom
+  a owl:Class ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf sml:SpatialRegion ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom hos:Room ;
+      owl:onProperty sml:isImplementedBy ;
+    ] ;
+  sml:hasPart hos:WallFinish_1 ;
+  sml:hasPartsGroup hos:WallFinish_OR ;
+.
+hos:OperationRoom_1
+  a hos:OperationRoom ;
+  sml:isImplementedBy hos:Room_1 ;
+  sml:participatesIn hos:Deviding_1 ;
+  sml:participatesIn hos:LightReflecting_1 ;
+  sml:participatesIn hos:SoundDampening_1 ;
+.
+hos:RentableSurface
+  a owl:Class ;
+  rdfs:subClassOf hos:FloorSurface ;
+.
+hos:RentableSurface_1
+  a hos:RentableSurface ;
+  sml:connectsObject hos:Floor_1 ;
+  sml:connectsObject hos:Room_1 ;
+.
+hos:RentableSurface_2
+  a hos:RentableSurface ;
+  sml:connectsObject hos:Floor_2 ;
+  sml:connectsObject hos:Room_2 ;
+.
+hos:Room
+  a owl:Class ;
+  rdfs:subClassOf sml:SpatialRegion ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+.
+hos:Room_1
+  a hos:Room ;
+  sml:participatesIn hos:CarryingCapacityOffering_1 ;
+.
+hos:Room_2
+  a hos:Room ;
+.
+hos:SoundDampening
+  a owl:Class ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+  rdfs:subClassOf sml:Interaction ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue sml:EnergyFlow ;
+      owl:onProperty sml:transferType ;
+    ] ;
+.
+hos:SoundDampening_1
+  a hos:SoundDampening ;
+.
+hos:StuccoLayer
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+.
+hos:StuccoLayer_1-1
+  a hos:StuccoLayer ;
+  sml:consistsOf hos:Cast ;
+  sml:participatesIn hos:Attaching_1 ;
+.
+hos:StuccoRoom_1
+  a rdfs:Container ;
+  rdfs:member hos:StuccoLayer_1-1 ;
+.
+hos:Wall
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:TechnicalEntity ;
+.
+hos:WallFinish
+  a owl:Class ;
+  rdfs:subClassOf sml:DiscreteObject ;
+  rdfs:subClassOf sml:FunctionalEntity ;
+.
+hos:WallFinish_1-1
+  a hos:WallFinish ;
+  sml:isImplementedBy hos:StuccoLayer_1-1 ;
+.
+hos:WallFinish_OR
+  a rdfs:Container ;
+  rdfs:member hos:WallFinish_1-1 ;
+.
+hos:WallSurface_1-1
+  a sml:Interface ;
+  sml:connectsObject hos:DevidingWall_1 ;
+  sml:connectsObject hos:OperationRoom_1 ;
+.
+hos:adhesiveStrength
+  a owl:ObjectProperty ;
+  rdfs:domain hos:Attaching ;
+  rdfs:range sml:QuantityValue ;
+.
+hos:hasSurface
+  a owl:ObjectProperty ;
+  rdfs:range sml:QuantityValue ;
+.

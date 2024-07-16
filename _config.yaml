@@ -1,11 +1,11 @@
 url: "https://w3id.org"
-baseurl: /nen2660
+baseurl: /sml
 remote_theme: redmer/minimaal
-title: NEN 2660
-description: NEN 2660 – Rules for information modelling of the built environment
+title: Semantic Modelling and Linking
+description: "NEN-EN 17632-1+2: Semantic Modelling and Linking "
 lang: en
 timezone: Europe/Amsterdam
-repo: https://github.com/bimloket/nen2660
+repo: https://github.com/stichting-crow/sml
 
 minimaal:
   nested_links: false
@@ -13,17 +13,17 @@ minimaal:
 
 staticld_ghpages:
   input_files:
-    - data/nen2660-skos.ttl
-    - data/nen2660-owl.ttl
-    - data/nen2660-shacl.ttl
-    - data/nen2660-rdfs.ttl
-  onto_base: "https://w3id.org/nen2660/def#"
-  vocab_base: "https://w3id.org/nen2660/term#"
+    - data/sml-owl.ttl
+    - data/sml-rdfs.ttl
+    - data/sml-shacl.ttl
+    - data/sml-skos.ttl
+  onto_base: "https://w3id.org/sml/def#"
+  vocab_base: "https://w3id.org/sml/term#"
   linked_ns:
-    - "nen2660"
-    - "nen2660-term"
+    - "sml"
+    - "sml-term"
   graph_order:
-    - "data/nen2660-skos.ttl"
-    - "data/nen2660-rdfs.ttl"
-    - "data/nen2660-owl.ttl"
-    - "data/nen2660-shacl.ttl"
+    - data/sml-skos.ttl
+    - data/sml-rdfs.ttl
+    - data/sml-owl.ttl
+    - data/sml-shacl.ttl
