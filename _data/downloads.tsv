@@ -9,8 +9,8 @@ Classes and Properties Part 2 (OWL)	c	normative	text/turtle	Defines OWL class an
 Shapes Part 2 (SHACL)	d	normative	text/turtle	Defines SHACL shapes for the classes and properties in the RDFS file.	/data/sml2-shacl.ttl	shacl	sml:	https://w3id.org/sml/2/shacl/def	owl:Ontology
 All as TriG	e	informative	application/trig	This convenience file separates the constituent ontologies into graphs.	/data/concat/sml.trig	trig	sml:</code><br> <code>sml-term:	</code>with appropriate accept header at: <code>https://w3id.org/sml	owl:Ontology</code><br><code>skos:ConceptScheme
 All as Turtle	g	informative	text/turtle	This convenience file combines the constituent ontologies into a single graph.	/data/concat/sml.ttl	turtle	sml:</code><br> <code>sml-term:	</code>with appropriate accept header at: <code>https://w3id.org/sml	owl:Ontology</code><br><code>skos:ConceptScheme
-
-
+All as JSON-LD	f	informative	application/ld+json	This convenience file in JSON-LD concatenates the constituent ontologies into a single file.	/data/concat/sml.json	jsonld	nen2660:</code><br> <code>nen2660-term:	</code>with appropriate accept header at: <code>https://w3id.org/nen2660	owl:Ontology</code><br><code>skos:ConceptScheme
+All as RDF/XML	h	informative	application/rdf+xml	This convenience file in RDF/XML concatenates the constituent ontologies into a single file.	/data/concat/sml.rdf	rdfxml	nen2660:</code><br> <code>nen2660-term:	</code>with appropriate accept header at: <code>https://w3id.org/nen2660	owl:Ontology</code><br><code>skos:ConceptScheme
 example-enum	i	example	text/turtle	This example file contains a model of an sml enumeration.	/data/examples/example-enum.ttl	ex1	sml:</code><br> <code>sml-term:		
 sml-example-data	j	example	text/turtle	This example file contains data according to sml.	/data/examples/sml-example-data.ttl	ex2	sml:</code><br> <code>sml-term:		
 sml-example-owl	k	example	text/turtle	This example file contains data according to sml-owl.	/data/examples/sml-example-owl.ttl	ex3	sml:</code><br> <code>sml-term:		
