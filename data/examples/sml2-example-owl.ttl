@@ -1,5 +1,5 @@
 # baseURI: https://w3id.org/hospital/owl/def
-# imports: https://w3id.org/sml2/owl/def
+# imports: https://w3id.org/sml/2/owl/def
 # prefix: hos
 
 @prefix hos: <https://w3id.org/hospital/def#> .
@@ -15,7 +15,7 @@
 
 <https://w3id.org/hospital/owl/def>
   a owl:Ontology ;
-  owl:imports <https://w3id.org/sml2/owl/def> ;
+  owl:imports <https://w3id.org/sml/2/owl/def> ;
 .
 
 hos:AllFloors

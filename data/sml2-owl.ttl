@@ -1,4 +1,4 @@
-# baseURI: https://w3id.org/sml2/owl/def
+# baseURI: https://w3id.org/sml/2/owl/def
 # imports: https://w3id.org/sml/owl/def
 # imports: http://qudt.org/2.1/schema/qudt
 # imports: http://qudt.org/2.1/vocab/quantitykind
@@ -6,7 +6,7 @@
 # imports: http://www.w3.org/2004/02/skos/core
 # imports: http://www.w3.org/2006/time
 # imports: http://www.w3.org/ns/shacl
-# imports: https://w3id.org/sml2/rdfs/def
+# imports: https://w3id.org/sml/2/rdfs/def
 # imports: http://www.w3.org/ns/sosa/
 # imports: http://www.opengis.net/ont/geosparql
 # prefix: sml
@@ -25,7 +25,7 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
-<https://w3id.org/sml2/owl/def>
+<https://w3id.org/sml/2/owl/def>
   a owl:Ontology ;
   owl:imports <https://w3id.org/sml/owl/def> ;
   owl:imports <http://qudt.org/2.1/schema/qudt> ;
@@ -34,7 +34,7 @@
   owl:imports <http://www.w3.org/2004/02/skos/core> ;
   owl:imports <http://www.w3.org/2006/time> ;
   owl:imports <http://www.w3.org/ns/shacl> ;
-  owl:imports <https://w3id.org/sml2/rdfs/def> ;
+  owl:imports <https://w3id.org/sml/2/rdfs/def> ;
   owl:imports <http://www.w3.org/ns/sosa/> ;
   owl:imports <http://www.opengis.net/ont/geosparql> ;
 .

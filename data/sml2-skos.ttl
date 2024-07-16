@@ -1,4 +1,4 @@
-# baseURI: https://w3id.org/sml2/skos/term
+# baseURI: https://w3id.org/sml/2/skos/term
 # imports: https://w3id.org/sml/skos/term
 # imports: http://qudt.org/2.1/schema/qudt
 # imports: http://qudt.org/2.1/vocab/quantitykind
@@ -24,7 +24,7 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
-<https://w3id.org/sml2/skos/term>
+<https://w3id.org/sml/2/skos/term>
   a skos:ConceptScheme ;
   owl:imports <https://w3id.org/sml/skos/term> ;
   owl:imports <http://qudt.org/2.1/schema/qudt> ;

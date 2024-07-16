@@ -1,5 +1,5 @@
-# baseURI: https://w3id.org/sml2/rdfs/def
-# imports: https://w3id.org/sml2/skos/term
+# baseURI: https://w3id.org/sml/2/rdfs/def
+# imports: https://w3id.org/sml/2/skos/term
 # imports: https://w3id.org/sml/rdfs/def
 # imports: http://qudt.org/2.1/schema/qudt
 # imports: http://qudt.org/2.1/vocab/quantitykind
@@ -28,10 +28,10 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 
-<https://w3id.org/sml2/rdfs/def>
+<https://w3id.org/sml/2/rdfs/def>
   a owl:Ontology ;
   owl:imports <https://w3id.org/sml/rdfs/def> ;
-  owl:imports <https://w3id.org/sml2/skos/term> ;
+  owl:imports <https://w3id.org/sml/2/skos/term> ;
   owl:imports <http://qudt.org/2.1/schema/qudt> ;
   owl:imports <http://qudt.org/2.1/vocab/quantitykind> ;
   owl:imports <http://qudt.org/2.1/vocab/unit> ;
