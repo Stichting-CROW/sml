@@ -91,9 +91,14 @@ example files</a>, that demonstrate usage.
 
 ## Standard
 
-The standard CEN-EN 17632 is available at
+The standard CEN-EN 17632-1 is available at
 <a href='https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_PROJECT:67839&cs=13BE091B11208910B30E53F9215AFDE96' class='link dim underline-hover blue'>
-Standard</a>.
+standard</a>.
+
+The standard CEN-EN 17632-2 is under editorial ballot. It is expected to be <a href='https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_PROJECT,FSP_LANG_ID:76161,25&cs=11215E63F6DE6FE1E70AC6A77194B4E63' class='link dim underline-hover blue'>
+to be published</a> in autumn 2024.
+
+
 
 ---
 
