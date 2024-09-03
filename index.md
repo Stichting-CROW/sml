@@ -8,7 +8,7 @@ permalink: /
 
 These pages provide a way to lookup and dereference the concepts of 
 <a href='-/downloads#standard' class='link dim underline-hover blue'>
-CEN-EN 176322</a>.
+CEN-EN 17632</a>.
 
 ***
 
