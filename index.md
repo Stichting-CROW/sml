@@ -30,6 +30,9 @@ CEN-EN 17632</a>.
 {% endif %}
 {% endunless %}
 {% endunless %}
+
+{% endfor %}
+
 <h3 class='f5 db mb4'>
 <a
   class="link"
@@ -38,7 +41,6 @@ CEN-EN 17632</a>.
   <span class='dim underline-hover brand-dark-color f3'>SML Ontology viewer</span>
 </a>
 </h3>
-{% endfor %}
 
 ***
 
