@@ -38,7 +38,7 @@ CEN-EN 17632</a>.
   class="link"
   href="https://sml.ontology-viewer.com/">
   <span class='db black mb2'>Viewer</span>
-  <span class='dim underline-hover brand-dark-color f3'>SMLOntology viewer</span>
+  <span class='dim underline-hover brand-dark-color f3'>SML Ontology viewer</span>
 </a>
 </h3>
 
