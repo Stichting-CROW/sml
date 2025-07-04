@@ -1,788 +1,1035 @@
-prefix owl:          <http://www.w3.org/2002/07/owl#>
-prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#>
-prefix dc:           <http://purl.org/dc/terms/>
-prefix foaf:         <http://xmlns.com/foaf/0.1/>
-prefix vs:           <http://www.w3.org/2003/06/sw-vocab-status/ns#>
-prefix vann:         <http://purl.org/vocab/vann/>
-prefix cc:           <http://creativecommons.org/ns#>
-prefix voaf:         <http://purl.org/vocommons/voaf>
-prefix xsd:          <http://www.w3.org/2001/XMLSchema#>
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns: <https://www.cencenelec.eu.nl/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sml: <https://w3id.org/sml/def#> .
 @prefix sml-term: <https://w3id.org/sml/term#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
 
-<https://w3id.org/sml/> a owl:Ontology , voaf:Vocabulary ;
-                            vann:preferredNamespacePrefix   "sml" ;
-                            vann:preferredNamespaceUri      "https://w3id.org/sml/def#" ;
-                            dc:title                        "CEN-EN 17632-1:2022 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en ;
-                            rdfs:label                      "CEN-EN 17632-1:2022 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en ; 
-                            dc:description                  "Ontology which is a normative part of the European CEN-EN 17632 standard"@en ;                    
-                            dc:issued                       "2024-11-01"^^xsd:date ;
-                            dc:modified                     "2024-11-01"^^xsd:date ;
-                            owl:versionInfo                 "2024" ;
-                            rdfs:comment                    "Initial version of the published CEN-EN 17632 ontology. Consisting of SML part 1 and part 2" ;
-                            dc:rights                       "Copyright © 2024 European Committee for Standardization" ;
-                            dc:publisher                    <https://www.cencenelec.eu.nl> ;
-                            dc:contributor                  <https://www.crow.nl> ;
-                            .
-
-<https://www.cencenelec.eu.nl>    a   foaf:Organization ;
-                rdfs:label "European Committee for Standardization"@nl .
-<https://www.crow.nl>   a   foaf:Organization ;
-                rdfs:label "Stichting CROW"@nl .
-
-sml:AbstractConcept vs:term_status "stable";
+sml:AbstractConcept rdfs:label "Abstract concept"@en;
   rdfs:comment "Concept that forms a manifestation and demarcation in an abstract space. An abstract concept has no life cycle"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#AbstractConcept> vs:term_status "stable";
+<https://w3id.org/sml/> a owl:Ontology, voaf:Vocabulary;
+  vann:preferredNamespacePrefix "sml";
+  vann:preferredNamespaceUri "https://w3id.org/sml/def#";
+  dc:title "CEN-EN 17632:2022/2024 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en;
+  rdfs:label "CEN-EN 17632:2022/2024 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en;
+  dc:description "Ontology which is a normative part of the European CEN-EN 17632 standard"@en;
+  dc:issued "2024-11-01"^^xsd:date;
+  dc:modified "2024-11-01"^^xsd:date;
+  owl:versionInfo "2024";
+  rdfs:comment "Initial version of the published CEN-EN 17632 ontology. Consisting of SML part 1 and part 2";
+  dc:rights "Copyright © 2024 European Committee for Standardization";
+  dc:publisher <https://www.cencenelec.eu.nl>;
+  dc:contributor <https://www.crow.nl> .
+
+<https://www.cencenelec.eu.nl> a foaf:Organization;
+  rdfs:label "European Committee for Standardization"@nl .
+
+<https://www.crow.nl> a foaf:Organization;
+  rdfs:label "Stichting CROW"@nl .
+
+sml-term:AbstractConcept rdfs:label "Abstract concept"@en;
   rdfs:comment "Concept that forms a manifestation and demarcation in an abstract space. An abstract concept has no life cycle"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:TopConcept vs:term_status "stable";
+sml:TopConcept rdfs:label "Top concept"@en;
   rdfs:comment "The most generic concept"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Activity vs:term_status "stable";
+sml:Activity rdfs:label "Activity"@en;
   rdfs:comment "Entity that takes place or can take place in a concrete space-time. An activity transforms objects, and is executed by an object"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Activity> vs:term_status "stable";
+sml-term:Activity rdfs:label "Activity"@en;
   rdfs:comment "Entity that takes place or can take place in a concrete space-time. An activity transforms objects, and is executed by an object"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasPart vs:term_status "stable";
+sml:hasPart rdfs:label "has part"@en;
   rdfs:comment "A decomposition (hasPart) relation between concrete concepts"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Entity vs:term_status "stable";
+sml:Entity rdfs:label "Entity"@en;
   rdfs:comment "Concept that forms a manifestation and a demarcation in a concrete space-time, and which has a certain state at any moment in time. An entity has a unique identity that remains constant throughout its life cycle. The life cycle of an entity is made up of the sequence of states of that entity, which follow each other in time. An entity is an object or an activity. An object exists, an activity takes place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:GeometricEntity vs:term_status "stable";
+sml:GeometricEntity rdfs:label "Geometric entity"@en;
   rdfs:comment "Named concept, which forms an actual or virtual demarcation in a concrete (physical, three-dimensional) space, which we experience in reality"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasBoundary vs:term_status "stable";
+sml:hasBoundary rdfs:label "has boundary"@en;
   rdfs:comment "The geometric entity representing the boundary of a concrete concept"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasInterior vs:term_status "stable";
+sml:hasInterior rdfs:label "has interior"@en;
   rdfs:comment "The geometric entity representing the interior of a concrete concept"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Object vs:term_status "stable";
+sml:Object rdfs:label "Object"@en;
   rdfs:comment "Entity that exists or can exist within a concrete space-time. An object executes an activity, and is transformed by an activity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:transforms vs:term_status "stable";
+sml:transforms rdfs:label "transforms"@en;
   rdfs:comment "The object transformed by an activity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:AggregationStateType vs:term_status "stable";
+sml:AggregationStateType rdfs:label "Aggregation state type"@en;
   rdfs:comment "One of the four fundamental states of matter being a solid, liquid, gas or plasma"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:EnumerationType vs:term_status "stable";
+sml:EnumerationType rdfs:label "Enumeration type"@en;
   rdfs:comment "A meta-concept having concepts as instances having no further attributes or relations (annotations only)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#AggregationStateType> vs:term_status "stable";
+sml-term:AggregationStateType rdfs:label "Aggregation state type"@en;
   rdfs:comment "One of the four fundamental states of matter being a solid, liquid, gas or plasma"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Solid vs:term_status "stable";
+sml:Solid rdfs:label "Solid"@en;
   rdfs:comment "Matter that can be picked up or held, having a texture, and usually firm. Unlike a liquid, gas or plasma"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Liquid vs:term_status "stable";
+sml:Liquid rdfs:label "Liquid"@en;
   rdfs:comment "A liquid is a nearly incompressible fluid that conforms to the shape of its container but retains a (nearly) constant volume independent of pressure"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Gas vs:term_status "stable";
+sml:Gas rdfs:label "Gas"@en;
   rdfs:comment "Matter in an intermediate state between liquid and plasma that can be contained only if it is fully surrounded by a solid (or in a bubble of liquid) (or held together by gravitational pull); it can condense into a liquid, or can (rarely) become a solid directly by deposition"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Plasma vs:term_status "stable";
+sml:Plasma rdfs:label "Plasma"@en;
   rdfs:comment "A phase in which the particles of a gaseous substance are ionised"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:AmountOfBulkMatter vs:term_status "stable";
+sml:AmountOfBulkMatter rdfs:label "Amount of bulk matter"@en;
   rdfs:comment "A real object that consists of a continuous amount of non-rigid matter, held together primarily by external forces (gravity or confinement)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#AmountOfBulkMatter> vs:term_status "stable";
+sml-term:AmountOfBulkMatter rdfs:label "Amount of bulk matter"@en;
   rdfs:comment "A real object that consists of a continuous amount of non-rigid matter, held together primarily by external forces (gravity or confinement)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:RealObject vs:term_status "stable";
+sml:RealObject rdfs:label "Real object"@en;
   rdfs:comment "physical object (rigid or non-rigid) that is (or can be) tangible and visible in reality, man-made or naturally occurring"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:ChemicalCompound vs:term_status "stable";
+sml:ChemicalCompound rdfs:label "Chemical compound"@en;
   rdfs:comment "Pure substance consisting of two or more chemical elements that have a chemical bond with each other. In a chemical compound, the elements occur in a fixed ratio. A compound can be broken down into simpler substances by means of chemical reactions"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:PureSubstance vs:term_status "stable";
+sml:PureSubstance rdfs:label "Pure substance"@en;
   rdfs:comment "Chemical matter that has an equal chemical composition and recognizable uniform and isotropic properties"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:ChemicalElement vs:term_status "stable";
+sml:ChemicalElement rdfs:label "Chemical element"@en;
   rdfs:comment "Pure substance that is made up of atoms with the same atomic number. A chemical element cannot be decomposed through chemical reactions"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#ChemicalElement> vs:term_status "stable";
+sml-term:ChemicalElement rdfs:label "Chemical element"@en;
   rdfs:comment "Pure substance that is made up of atoms with the same atomic number. A chemical element cannot be decomposed through chemical reactions"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:ConceptType vs:term_status "stable";
+sml:ConceptType rdfs:label "Concept type"@en;
   rdfs:comment "A meta-concept having concepts as instances that can have attributes or relations"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#ConceptType> vs:term_status "stable";
+sml-term:ConceptType rdfs:label "Concept type"@en;
   rdfs:comment "A meta-concept having concepts as instances that can have attributes or relations"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Type vs:term_status "stable";
+sml:Type rdfs:label "Type"@en;
   rdfs:comment "A meta-concept which instances are concepts (not individuals)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:ConcreteConcept vs:term_status "stable";
+sml:ConcreteConcept rdfs:label "Concrete concept"@en;
   rdfs:comment "Concept that forms a manifestation and a demarcation in a concrete space-time. A concrete concept has a life cycle"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#ConcreteConcept> vs:term_status "stable";
+sml-term:ConcreteConcept rdfs:label "Concrete concept"@en;
   rdfs:comment "Concept that forms a manifestation and a demarcation in a concrete space-time. A concrete concept has a life cycle"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasTemporalEntity vs:term_status "stable";
+sml:hasTemporalEntity rdfs:label "has temporal entity"@en;
   rdfs:comment "The abstract temporal entity representing a concrete concept in time"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasPartsGroup vs:term_status "stable";
+sml:hasPartsGroup rdfs:label "has parts group"@en;
   rdfs:comment "The possession of an group of, potentially implicit, parts"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Connection vs:term_status "stable";
+sml:Connection rdfs:label "Connection"@en;
   rdfs:comment "A physical object (real object or spatial area) that connects two other physical objects and over which interaction takes place, namely the transfer of matter, energy, information or forces"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Connection> vs:term_status "stable";
+sml-term:Connection rdfs:label "Connection"@en;
   rdfs:comment "A physical object (real object or spatial area) that connects two other physical objects and over which interaction takes place, namely the transfer of matter, energy, information or forces"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:PhysicalObject vs:term_status "stable";
+sml:PhysicalObject rdfs:label "Physical object"@en;
   rdfs:comment "Object that exists or may exist within physical 4D space-time. A physical object forms a manifestation and a demarcation of matter and/or energy, and is (in)directly perceptible by the senses"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:connectsObject vs:term_status "stable";
+sml:connectsObject rdfs:label "connects object"@en;
   rdfs:comment "The physical objects connected by a connection or interface"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Port vs:term_status "stable";
+sml:Port rdfs:label "Port"@en;
   rdfs:comment "A physical or logical point of interaction as part of a physical object where, through a connection or interface, an interaction can take place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:connectsPort vs:term_status "stable";
+sml:connectsPort rdfs:label "connects port"@en;
   rdfs:comment "The ports (as part of physical objects) connected by a connection or interface"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:DiscreteObject vs:term_status "stable";
+sml:DiscreteObject rdfs:label "Discrete object"@en;
   rdfs:comment "A real object consisting of a contiguous amount of form-retaining matter, held together primarily by internal forces (gravity or electromagnetic force)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#DiscreteObject> vs:term_status "stable";
+sml-term:DiscreteObject rdfs:label "Discrete object"@en;
   rdfs:comment "A real object consisting of a contiguous amount of form-retaining matter, held together primarily by internal forces (gravity or electromagnetic force)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Entity> vs:term_status "stable";
+sml-term:Entity rdfs:label "Entity"@en;
   rdfs:comment "Concept that forms a manifestation and a demarcation in a concrete space-time, and which has a certain state at any moment in time. An entity has a unique identity that remains constant throughout its life cycle. The life cycle of an entity is made up of the sequence of states of that entity, which follow each other in time. An entity is an object or an activity. An object exists, an activity takes place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:State vs:term_status "stable";
+sml:State rdfs:label "State"@en;
   rdfs:comment "Temporal part of an entity during a period between two events. A state is characterized by the properties and relations of the entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasState vs:term_status "stable";
+sml:hasState rdfs:label "has state"@en;
   rdfs:comment "The state of an entity in a certain point or period of time"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Event vs:term_status "stable";
+sml:Event rdfs:label "Event"@en;
   rdfs:comment "Transition between two successive states of an entity (object or activity). An event is triggered in a state"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:triggers vs:term_status "stable";
+sml:triggers rdfs:label "triggers"@en;
   rdfs:comment "The event triggert by an entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#EnumerationType> vs:term_status "stable";
+sml-term:EnumerationType rdfs:label "Enumeration type"@en;
   rdfs:comment "A meta-concept having concepts as instances having no further attributes or relations (annotations only)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Event> vs:term_status "stable";
+sml-term:Event rdfs:label "Event"@en;
   rdfs:comment "Transition between two successive states of an entity (object or activity). An event is triggered in a state"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:begins vs:term_status "stable";
+sml:begins rdfs:label "begins"@en;
   rdfs:comment "The state that is started by an event"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:ends vs:term_status "stable";
+sml:ends rdfs:label "ends"@en;
   rdfs:comment "The state that is ended by an event"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Function vs:term_status "stable";
+sml:Function rdfs:label "Function"@en;
   rdfs:comment "An activity performed by an object whose external behavior contributes to goals set by one or more technical entities"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:FunctionalEntity vs:term_status "stable";
+sml:FunctionalEntity rdfs:label "Functional entity"@en;
   rdfs:comment "An entity involving the external behavior where the output contributes to stakeholder objectives implemented/played by one or more technical entities"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#FunctionalEntity> vs:term_status "stable";
+sml-term:FunctionalEntity rdfs:label "Functional entity"@en;
   rdfs:comment "An entity involving the external behavior where the output contributes to stakeholder objectives implemented/played by one or more technical entities"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasFunctionalPart vs:term_status "stable";
+sml:hasFunctionalPart rdfs:label "has functional part"@en;
   rdfs:comment "The hasPart relation of a functional nature"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:TechnicalEntity vs:term_status "stable";
+sml:TechnicalEntity rdfs:label "Technical entity"@en;
   rdfs:comment "An entity concerned with technical properties and relations that implements or plays functional entities"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasSolution vs:term_status "stable";
+sml:hasSolution rdfs:label "has solution"@en;
   rdfs:comment "A technical entity that is a potential solution for a functional entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#GeometricEntity> vs:term_status "stable";
+sml-term:GeometricEntity rdfs:label "Geometric entity"@en;
   rdfs:comment "Named concept, which forms an actual or virtual demarcation in a concrete (physical, three-dimensional) space, which we experience in reality"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Representation vs:term_status "stable";
+sml:Representation rdfs:label "Representation"@en;
   rdfs:comment "That which represents something else"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:HeterogeneousMixture vs:term_status "stable";
+sml:HeterogeneousMixture rdfs:label "Heterogeneous mixture"@en;
   rdfs:comment "A mixture that is separated into different regions or phases that have different compositions or properties"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#HeterogeneousMixture> vs:term_status "stable";
+sml-term:HeterogeneousMixture rdfs:label "Heterogeneous mixture"@en;
   rdfs:comment "A mixture that is separated into different regions or phases that have different compositions or properties"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Mixture vs:term_status "stable";
+sml:Mixture rdfs:label "Mixture"@en;
   rdfs:comment "The combination of two or more different pure substances without the molecules losing their identity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:HomogeneousMixture vs:term_status "stable";
+sml:HomogeneousMixture rdfs:label "Homogeneous mixture"@en;
   rdfs:comment "A mixture that is uniform throughout, and has only one phase"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#HomogeneousMixture> vs:term_status "stable";
+sml-term:HomogeneousMixture rdfs:label "Homogeneous mixture"@en;
   rdfs:comment "A mixture that is uniform throughout, and has only one phase"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:InformationObject vs:term_status "stable";
+sml:InformationObject rdfs:label "Information object"@en;
   rdfs:comment "Object which describes a thing in reality"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#InformationObject> vs:term_status "stable";
+sml-term:InformationObject rdfs:label "Information object"@en;
   rdfs:comment "Object which describes a thing in reality"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Interaction vs:term_status "stable";
+sml:Interaction rdfs:label "Interaction"@en;
   rdfs:comment "The activity being a combination of sub-activities performed by physical objects between which a transfer of matter, information, energy or force takes place, typically over a connection or interface (directly or through ports)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Interaction> vs:term_status "stable";
+sml-term:Interaction rdfs:label "Interaction"@en;
   rdfs:comment "The activity being a combination of sub-activities performed by physical objects between which a transfer of matter, information, energy or force takes place, typically over a connection or interface (directly or through ports)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:TransferType vs:term_status "stable";
+sml:TransferType rdfs:label "Transfer type"@en;
   rdfs:comment "The type of thing being transferred, here: material, information, energy or force"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:transferType vs:term_status "stable";
+sml:transferType rdfs:label "transfer type"@en;
   rdfs:comment "The possession of a transfer type by an interaction"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:overConnection vs:term_status "stable";
+sml:overConnection rdfs:label "over connection"@en;
   rdfs:comment "The connection over which an interaction between physical objects takes place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Interface vs:term_status "stable";
+sml:Interface rdfs:label "Interface"@en;
   rdfs:comment "A spatial object, typically a thin 2D physical space (but also 0D or 1D) that connects two physical objects or ports of physical objects through which a static or dynamic interaction or interaction between those elements can take place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:overInterface vs:term_status "stable";
+sml:overInterface rdfs:label "over interface"@en;
   rdfs:comment "The interface over which an interaction between physical objects takes place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Interface> vs:term_status "stable";
+sml-term:Interface rdfs:label "Interface"@en;
   rdfs:comment "A spatial object, typically a thin 2D physical space (but also 0D or 1D) that connects two physical objects or ports of physical objects through which a static or dynamic interaction or interaction between those elements can take place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:SpatialRegion vs:term_status "stable";
+sml:SpatialRegion rdfs:label "Spatial region"@en;
   rdfs:comment "A physical object that encloses a particular area such as a room, roadway and river, that is bounded by real objects or other spatial areas (e.g., by usage or convention) and that contains primarily liquid or gaseous amount of matter"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Matter vs:term_status "stable";
+sml:Matter rdfs:label "Matter"@en;
   rdfs:comment "A pure chemical substance, chemical compound or mixture from which real objects are made"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Matter> vs:term_status "stable";
+sml-term:Matter rdfs:label "Matter"@en;
   rdfs:comment "A pure chemical substance, chemical compound or mixture from which real objects are made"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:aggregationStateType vs:term_status "stable";
+sml:aggregationStateType rdfs:label "aggregation state type"@en;
   rdfs:comment "The possession of an aggregation state type"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:chemicalFormula vs:term_status "stable";
+sml:chemicalFormula rdfs:label "chemical formula"@en;
   rdfs:comment "The possession of information about the chemical proportions of atoms that constitute a particular chemical compound"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:MatterPortion vs:term_status "stable";
+sml:MatterPortion rdfs:label "Matter portion"@en;
   rdfs:comment "An objectified relation reference for the consists of relation"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#MatterPortion> vs:term_status "stable";
+sml-term:MatterPortion rdfs:label "Matter portion"@en;
   rdfs:comment "An objectified relation reference for the consists of relation"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:portion vs:term_status "stable";
+sml:portion rdfs:label "portion"@en;
   rdfs:comment "The relative portion of a matter portion"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:RelationReference vs:term_status "stable";
+sml:RelationReference rdfs:label "Relation reference"@en;
   rdfs:comment "The objectification of a reference for a relation having a complex value like a simple reference sec combined with other metadata or just a combination of simple references (n-ary relation)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:QuantityValue vs:term_status "stable";
+sml:QuantityValue rdfs:label "Quantity value"@en;
   rdfs:comment "The objectification of a value of a quantity (typically involving a quantity kind and a unit) having a complex value like a simple value sec combined with other metadata or just a combination of simple values"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Mixture> vs:term_status "stable";
+sml-term:Mixture rdfs:label "Mixture"@en;
   rdfs:comment "The combination of two or more different pure substances without the molecules losing their identity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:consistsOf vs:term_status "stable";
+sml:consistsOf rdfs:label "consists of"@en;
   rdfs:comment "The matter a real object or mixture is made of"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Object> vs:term_status "stable";
+sml-term:Object rdfs:label "Object"@en;
   rdfs:comment "Entity that exists or can exist within a concrete space-time. An object executes an activity, and is transformed by an activity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Objectification vs:term_status "stable";
+sml:Objectification rdfs:label "Objectification"@en;
   rdfs:comment "An attribute (quality or quantity) or relation represented as an individual defined by a concept"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Objectification> vs:term_status "stable";
+sml-term:Objectification rdfs:label "Objectification"@en;
   rdfs:comment "An attribute (quality or quantity) or relation represented as an individual defined by a concept"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#PhysicalObject> vs:term_status "stable";
+sml-term:PhysicalObject rdfs:label "Physical object"@en;
   rdfs:comment "Object that exists or may exist within physical 4D space-time. A physical object forms a manifestation and a demarcation of matter and/or energy, and is (in)directly perceptible by the senses"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:isDescribedBy vs:term_status "stable";
+sml:isDescribedBy rdfs:label "is described by"@en;
   rdfs:comment "The information object that describes something"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:executes vs:term_status "stable";
+sml:executes rdfs:label "executes"@en;
   rdfs:comment "The activity executed by a physical object"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:isConnectedTo vs:term_status "stable";
+sml:isConnectedTo rdfs:label "is connected to"@en;
   rdfs:comment "The topological relationship between physical objects"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:participatesIn vs:term_status "stable";
+sml:participatesIn rdfs:label "participates in"@en;
   rdfs:comment "The interaction a physical object participates in"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:PlannedEntity vs:term_status "stable";
+sml:PlannedEntity rdfs:label "Planned entity"@en;
   rdfs:comment "An entity that does not yet exist in physical reality, but which exists in mental or conceptual reality"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#PlannedEntity> vs:term_status "stable";
+sml-term:PlannedEntity rdfs:label "Planned entity"@en;
   rdfs:comment "An entity that does not yet exist in physical reality, but which exists in mental or conceptual reality"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:RealizedEntity vs:term_status "stable";
+sml:RealizedEntity rdfs:label "Realized entity"@en;
   rdfs:comment "An entity that exists or has existed in the physical reality"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:isPlanFor vs:term_status "stable";
+sml:isPlanFor rdfs:label "is plan for"@en;
   rdfs:comment "A potentially realized entity according to this planned entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Port> vs:term_status "stable";
+sml-term:Port rdfs:label "Port"@en;
   rdfs:comment "A physical or logical point of interaction as part of a physical object where, through a connection or interface, an interaction can take place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#PureSubstance> vs:term_status "stable";
+sml-term:PureSubstance rdfs:label "Pure substance"@en;
   rdfs:comment "Chemical matter that has an equal chemical composition and recognizable uniform and isotropic properties"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:QualityValue vs:term_status "stable";
+sml:QualityValue rdfs:label "Quality value"@en;
   rdfs:comment "The objectification of a value of a quality having a complex value like a simple value sec combined with other metadata or just a combination of simple values"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#QualityValue> vs:term_status "stable";
+sml-term:QualityValue rdfs:label "Quality value"@en;
   rdfs:comment "The objectification of a value of a quality having a complex value like a simple value sec combined with other metadata or just a combination of simple values"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#QuantityValue> vs:term_status "stable";
+sml-term:QuantityValue rdfs:label "Quantity value"@en;
   rdfs:comment "The objectification of a value of a quantity (typically involving a quantity kind and a unit) having a complex value like a simple value sec combined with other metadata or just a combination of simple values"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#RealObject> vs:term_status "stable";
+sml-term:RealObject rdfs:label "Real object"@en;
   rdfs:comment "physical object (rigid or non-rigid) that is (or can be) tangible and visible in reality, man-made or naturally occurring"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#RealizedEntity> vs:term_status "stable";
+sml-term:RealizedEntity rdfs:label "Realized entity"@en;
   rdfs:comment "An entity that exists or has existed in the physical reality"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#RelationReference> vs:term_status "stable";
+sml-term:RelationReference rdfs:label "Relation reference"@en;
   rdfs:comment "The objectification of a reference for a relation having a complex value like a simple reference sec combined with other metadata or just a combination of simple references (n-ary relation)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Representation> vs:term_status "stable";
+sml-term:Representation rdfs:label "Representation"@en;
   rdfs:comment "That which represents something else"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Requirement vs:term_status "stable";
+sml:Requirement rdfs:label "Requirement"@en;
   rdfs:comment "A rule that should hold for something, defined via its attributes or relations";
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Requirement> vs:term_status "stable";
+sml-term:Requirement rdfs:label "Requirement"@en;
   rdfs:comment "A rule that should hold for something, defined via its attributes or relations"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:RequirementSeverityType vs:term_status "stable";
+sml:RequirementSeverityType rdfs:label "Requirement severity type"@en;
   rdfs:comment "The seriousness of a requirement like demanded or wished"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:requirementSeverityType vs:term_status "stable";
+sml:requirementSeverityType rdfs:label "requirement severity type"@en;
   rdfs:comment "The possession of a severity type by a requirement"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:RequirementSourceType vs:term_status "stable";
+sml:RequirementSourceType rdfs:label "Requirement source type"@en;
   rdfs:comment "The type of source from which a requirement comes like a client, by definition, recommended by the sector or demanded by law/regulation"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:requirementSourceType vs:term_status "stable";
+sml:requirementSourceType rdfs:label "requirement source type"@en;
   rdfs:comment "The possession of a source type by a requirement"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:RequirementTopicType vs:term_status "stable";
+sml:RequirementTopicType rdfs:label "Requirement topic type"@en;
   rdfs:comment "The entity aspect a requirement applies to"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:requirementTopicType vs:term_status "stable";
+sml:requirementTopicType rdfs:label "requirement topic type"@en;
   rdfs:comment "The possession of a topic type by a requirement"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#RequirementSeverityType> vs:term_status "stable";
+sml-term:RequirementSeverityType rdfs:label "Requirement severity type"@en;
   rdfs:comment "The seriousness of a requirement like demanded or wished"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#RequirementSourceType> vs:term_status "stable";
+sml-term:RequirementSourceType rdfs:label "Requirement source type"@en;
   rdfs:comment "The type of source from which a requirement comes like a client, by definition, recommended by the sector or demanded by law/regulation"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#RequirementTopicType> vs:term_status "stable";
+sml-term:RequirementTopicType rdfs:label "Requirement topic type"@en;
   rdfs:comment "The entity aspect a requirement applies to"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#SpatialRegion> vs:term_status "stable";
+sml-term:SpatialRegion rdfs:label "Spatial region"@en;
   rdfs:comment "A physical object that encloses a particular area such as a room, roadway and river, that is bounded by real objects or other spatial areas (e.g., by usage or convention) and that contains primarily liquid or gaseous amount of matter"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:contains vs:term_status "stable";
+sml:contains rdfs:label "contains"@en;
   rdfs:comment "The real objects located in a spatial region, typically the gaseous amount of bulk matter present in that region"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:isBoundBy vs:term_status "stable";
+sml:isBoundBy rdfs:label "is bound by"@en;
   rdfs:comment "The physical object that bounds a spatial region"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#State> vs:term_status "stable";
+sml-term:State rdfs:label "State"@en;
   rdfs:comment "Temporal part of an entity during a period between two events. A state is characterized by the properties and relations of the entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#TechnicalEntity> vs:term_status "stable";
+sml-term:TechnicalEntity rdfs:label "Technical entity"@en;
   rdfs:comment "An entity concerned with technical properties and relations that implements or plays functional entities"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasTechnicalPart vs:term_status "stable";
+sml:hasTechnicalPart rdfs:label "has technical part"@en;
   rdfs:comment "A hasPart relation of a technical nature"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#TopConcept> vs:term_status "stable";
+sml-term:TopConcept rdfs:label "Top concept"@en;
   rdfs:comment "The most generic concept"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:abbreviation vs:term_status "stable";
+sml:abbreviation rdfs:label "abbreviation"@en;
   rdfs:comment "Acronym or initial word as special case of an external name"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasRequirement vs:term_status "stable";
+sml:hasRequirement rdfs:label "has requirement"@en;
   rdfs:comment "The (unstructured) requirement for something"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#TransferType> vs:term_status "stable";
+sml-term:TransferType rdfs:label "Transfer type"@en;
   rdfs:comment "The type of thing being transferred, here: material, information, energy or force"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:MaterialFlow vs:term_status "stable";
+sml:MaterialFlow rdfs:label "Material flow"@en;
   rdfs:comment "The movement of an amount of material"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:EnergyFlow vs:term_status "stable";
+sml:EnergyFlow rdfs:label "Energy flow"@en;
   rdfs:comment "The movement of an amount of energy (as capacity to do work)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:InformationFlow vs:term_status "stable";
+sml:InformationFlow rdfs:label "Information flow"@en;
   rdfs:comment "The movement of information represented in some medium"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:Force vs:term_status "stable";
+sml:Force rdfs:label "Force"@en;
   rdfs:comment "Physical quantity which, when exerted on a body, causes tension or pressure to arise therein, or which causes the body to change motion, accelerate"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Type> vs:term_status "stable";
+sml-term:Type rdfs:label "Type"@en;
   rdfs:comment "A meta-concept which instances are concepts (not individuals)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-qudt:QuantityKind vs:term_status "stable";
+<https://w3id.org/sml/2/owl/def> vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+<https://w3id.org/sml/2/rdfs/def> vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+<https://w3id.org/sml/owl/def> vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+<https://w3id.org/sml/2/shacl/def> vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+<https://w3id.org/sml/shacl/def> vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml:AllDisjointClassesShape vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml:AllDisjointClassesShape2 vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml:AllDisjointClasses_1 vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml:AllDisjointClasses_2 vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml:AllDisjointClasses_3 vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml:AllDisjointClasses_4 vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml:hasQuantityKindShape vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+qudt:QuantityKind rdfs:label "Quantity kind"@en;
   rdfs:comment "Any observable property that can be measured and quantified numerically"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasQuantityKind vs:term_status "stable";
+sml:hasQuantityKind rdfs:label "has quantity kind"@en;
   rdfs:comment "The possession of a quantity kind"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-qudt:Unit vs:term_status "stable";
+sml:hasUnitShape vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+qudt:Unit rdfs:label "Unit"@en;
   rdfs:comment "A particular quantity value that has been chosen as a scale for measuring other quantities the same kind"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:hasUnit vs:term_status "stable";
+sml:hasUnit rdfs:label "has unit"@en;
   rdfs:comment "The possession of a unit"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:isImplementedBy vs:term_status "stable";
+sml:isImplementedBy rdfs:label "is implemented by"@en;
   rdfs:comment "The technical entity that implements a functional entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#isImplementedBy> vs:term_status "stable";
+sml-term:isImplementedBy rdfs:label "is implemented by"@en;
   rdfs:comment "The technical entity that implements a functional entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-sml:isRealizedBy vs:term_status "stable";
+sml:isRealizedBy rdfs:label "is realized by"@en;
   rdfs:comment "The realized entity that realizes a planned entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#isRealizedBy> vs:term_status "stable";
+sml-term:isRealizedBy rdfs:label "is realized by"@en;
   rdfs:comment "The realized entity that realizes a planned entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#ChemicalCompound> vs:term_status "stable";
+sml-term:ChemicalCompound rdfs:label "Chemical compound"@en;
   rdfs:comment "Pure substance consisting of two or more chemical elements that have a chemical bond with each other. In a chemical compound, the elements occur in a fixed ratio. A compound can be broken down into simpler substances by means of chemical reactions"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Function> vs:term_status "stable";
+sml-term:Function rdfs:label "Function"@en;
   rdfs:comment "An activity performed by an object whose external behavior contributes to goals set by one or more technical entities"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasPartsGroup> vs:term_status "stable";
+sml-term:hasPartsGroup rdfs:label "has parts group"@en;
   rdfs:comment "The possession of an group of, potentially implicit, parts"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#abbreviation> vs:term_status "stable";
+<https://w3id.org/sml/2/skos/term> vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+<https://w3id.org/sml/skos/term> vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml-term:abbreviation rdfs:label "abbreviation"@en;
   rdfs:comment "Acronym or initial word as special case of a name"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#aggregationStateType> vs:term_status "stable";
+sml-term:aggregationStateType rdfs:label "aggregation state type"@en;
   rdfs:comment "The possession of an aggregation state type"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#begins> vs:term_status "stable";
+sml-term:begins rdfs:label "begins"@en;
   rdfs:comment "The state that is started by an event"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#chemicalFormula> vs:term_status "stable";
+sml-term:chemicalFormula rdfs:label "chemical formula"@en;
   rdfs:comment "The possession of information about the chemical proportions of atoms that constitute a particular chemical compound"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#contains> vs:term_status "stable";
+sml-term:contains rdfs:label "contains"@en;
   rdfs:comment "The real objects located in a spatial region, typically the gaseous amount of bulk matter present in that region"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#ends> vs:term_status "stable";
+sml-term:ends rdfs:label "ends"@en;
   rdfs:comment "The state that is ended by an event"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#executes> vs:term_status "stable";
+sml-term:executes rdfs:label "executes"@en;
   rdfs:comment "The activity executed by a physical object"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasFunctionalPart> vs:term_status "stable";
+sml-term:hasFunctionalPart rdfs:label "has functional part"@en;
   rdfs:comment "The hasPart relation of a functional nature"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasPart> vs:term_status "stable";
+sml-term:hasPart rdfs:label "has part"@en;
   rdfs:comment "A decomposition (hasPart) relation between concrete concepts"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasQuantityKind> vs:term_status "stable";
+sml-term:hasQuantityKind rdfs:label "has quantity kind"@en;
   rdfs:comment "The possession of a quantity kind"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasRequirement> vs:term_status "stable";
+sml-term:hasRequirement rdfs:label "has requirement"@en;
   rdfs:comment "The (unstructured) requirement for something"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasState> vs:term_status "stable";
+sml-term:hasState rdfs:label "has state"@en;
   rdfs:comment "The state of an entity in a certain point or period of time"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasTechnicalPart> vs:term_status "stable";
+sml-term:hasTechnicalPart rdfs:label "has technical part"@en;
   rdfs:comment "A hasPart relation of a technical nature"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasTemporalEntity> vs:term_status "stable";
+sml-term:hasTemporalEntity rdfs:label "has temporal entity"@en;
   rdfs:comment "The abstract temporal entity representing a concrete concept in time"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasUnit> vs:term_status "stable";
+sml-term:hasUnit rdfs:label "has unit"@en;
   rdfs:comment "The possession of a unit"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#isBoundBy> vs:term_status "stable";
+sml-term:isBoundBy rdfs:label "is bound by"@en;
   rdfs:comment "The physical object that bounds a spatial region"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#isConnectedTo> vs:term_status "stable";
+sml-term:isConnectedTo rdfs:label "is connected to"@en;
   rdfs:comment "The topological relation between physical objects"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#overConnection> vs:term_status "stable";
+sml-term:overConnection rdfs:label "over connection"@en;
   rdfs:comment "The connection over which an interaction between physical objects takes place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#overInterface> vs:term_status "stable";
+sml-term:overInterface rdfs:label "over interface"@en;
   rdfs:comment "The interface over which an interaction between physical objects takes place"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#participatesIn> vs:term_status "stable";
+sml-term:participatesIn rdfs:label "participates in"@en;
   rdfs:comment "The interaction a physical object participates in"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#requirementSeverityType> vs:term_status "stable";
+sml-term:requirementSeverityType rdfs:label "requirement severity type"@en;
   rdfs:comment "The possession of a severity type by a requirement"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#requirementSourceType> vs:term_status "stable";
+sml-term:requirementSourceType rdfs:label "requirement source type"@en;
   rdfs:comment "The possession of a source type by a requirement"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#requirementTopicType> vs:term_status "stable";
+sml-term:requirementTopicType rdfs:label "requirement topic type"@en;
   rdfs:comment "The possession of a topic type by a requirement"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#transferType> vs:term_status "stable";
+sml-term:transferType rdfs:label "transfer type"@en;
   rdfs:comment "The possession of a transfer type by an interaction"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#transforms> vs:term_status "stable";
+sml-term:transforms rdfs:label "transforms"@en;
   rdfs:comment "The object transformed by an activity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#triggers> vs:term_status "stable";
+sml-term:triggers rdfs:label "triggers"@en;
   rdfs:comment "The event triggert by an entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#EnergyFlow> vs:term_status "stable";
+<https://w3id.org/sml/rdfs/def> vs:term_status "stable";
+  rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+sml-term:EnergyFlow rdfs:label "Energy flow"@en;
   rdfs:comment "The movement of an amount of energy (as capacity to do work)"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Force> vs:term_status "stable";
+sml-term:Force rdfs:label "Force"@en;
   rdfs:comment "Physical quantity which, when exerted on a body, causes tension or pressure to arise therein, or which causes the body to change motion, accelerate"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Gas> vs:term_status "stable";
+sml-term:Gas rdfs:label "Gas"@en;
   rdfs:comment "Matter in an intermediate state between liquid and plasma that can be contained only if it is fully surrounded by a solid (or in a bubble of liquid) (or held together by gravitational pull); it can condense into a liquid, or can (rarely) become a solid directly by deposition"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#InformationFlow> vs:term_status "stable";
+sml-term:InformationFlow rdfs:label "Information flow"@en;
   rdfs:comment "The movement of information represented in some medium"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Liquid> vs:term_status "stable";
+sml-term:Liquid rdfs:label "Liquid"@en;
   rdfs:comment "A liquid is a nearly incompressible fluid that conforms to the shape of its container but retains a (nearly) constant volume independent of pressure"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#MaterialFlow> vs:term_status "stable";
+sml-term:MaterialFlow rdfs:label "Material flow"@en;
   rdfs:comment "The movement of an amount of material"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Plasma> vs:term_status "stable";
+sml-term:Plasma rdfs:label "Plasma"@en;
   rdfs:comment "A phase in which the particles of a gaseous substance are ionised"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#QuantityKind> vs:term_status "stable";
+sml-term:QuantityKind rdfs:label "Quantity kind"@en;
   rdfs:comment "Any observable property that can be measured and quantified numerically"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Solid> vs:term_status "stable";
+sml-term:Solid rdfs:label "Solid"@en;
   rdfs:comment "Matter that can be picked up or held, having a texture, and usually firm. Unlike a liquid, gas or plasma"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#TemporalEntity> vs:term_status "stable";
+sml-term:TemporalEntity rdfs:label "Temporal entity"@en;
   rdfs:comment "A temporal interval or instant"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#Unit> vs:term_status "stable";
+sml-term:Unit rdfs:label "Unit"@en;
   rdfs:comment "A particular quantity value that has been chosen as a scale for measuring other quantities the same kind"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#connectsObject> vs:term_status "stable";
+sml-term:connectsObject rdfs:label "connects object"@en;
   rdfs:comment "The physical objects connected by a connection or interface"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#connectsPort> vs:term_status "stable";
+sml-term:connectsPort rdfs:label "connects port"@en;
   rdfs:comment "The ports (as part of physical objects) connected by a connection or interface"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#consistsOf> vs:term_status "stable";
+sml-term:consistsOf rdfs:label "consists of"@en;
   rdfs:comment "The matter a real object or mixture is made of"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasBoundary> vs:term_status "stable";
+sml-term:hasBoundary rdfs:label "has boundary"@en;
   rdfs:comment "The geometric entity representing the boundary of a concrete concept"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasInterior> vs:term_status "stable";
+sml-term:hasInterior rdfs:label "has interior"@en;
   rdfs:comment "The geometric entity representing the interior of a concrete concept"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#isDescribedBy> vs:term_status "stable";
+sml-term:isDescribedBy rdfs:label "is described by"@en;
   rdfs:comment "The information object that describes something"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#hasSolution> vs:term_status "stable";
+sml-term:hasSolution rdfs:label "has solution"@en;
   rdfs:comment "A technical entity that is a potential solution for a functional entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#isPlanFor> vs:term_status "stable";
+sml-term:isPlanFor rdfs:label "is plan for"@en;
   rdfs:comment "A potentially realized entity according to this planned entity"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .
 
-<https://w3id.org/sml/term#portion> vs:term_status "stable";
+sml-term:portion rdfs:label "portion"@en;
   rdfs:comment "The relative portion of a matter portion"@en;
+  vs:term_status "stable";
   rdfs:isDefinedBy <https://w3id.org/sml/> .

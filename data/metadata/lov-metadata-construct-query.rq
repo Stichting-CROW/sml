@@ -1,0 +1,57 @@
+# Query's the concatenated SML file (sml.ttl) from /data/concat folder
+# And creates lov.ttl which should be appended to sml.ttl as mentioned before, to create sml-lov-metadata.ttl.
+# Append command with `riot`: 
+# `riot --formatted=turtle "C:\GitHub\Stichting-CROW\sml\data\metadata\lov.ttl" "C:\GitHub\Stichting-CROW\sml\data\concat\sml.ttl" > combined.ttl`
+
+prefix cc: <http://creativecommons.org/ns#>
+prefix dc: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix ns: <https://www.cencenelec.eu.nl/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix quantitykind: <http://qudt.org/vocab/quantitykind/>
+prefix qudt: <http://qudt.org/schema/qudt/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix sml: <https://w3id.org/sml/def#>
+prefix sml-term: <https://w3id.org/sml/term#>
+prefix sosa: <http://www.w3.org/ns/sosa/>
+prefix time: <http://www.w3.org/2006/time#>
+prefix vann: <http://purl.org/vocab/vann/>
+prefix voaf: <http://purl.org/vocommons/voaf#>
+prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+construct {
+    ?resource rdfs:label ?resourceLabel .
+    ?resource rdfs:comment ?resourceDef .
+    ?resource vs:term_status "stable" .
+    ?resource rdfs:isDefinedBy <https://w3id.org/sml/> .
+
+    <https://w3id.org/sml/> a owl:Ontology , voaf:Vocabulary ;
+        vann:preferredNamespacePrefix   "sml" ;
+        vann:preferredNamespaceUri      "https://w3id.org/sml/def#" ;
+        dc:title                        "CEN-EN 17632:2022/2024 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en ;
+        rdfs:label                      "CEN-EN 17632:2022/2024 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en ; 
+        dc:description                  "Ontology which is a normative part of the European CEN-EN 17632 standard"@en ;                    
+        dc:issued                       "2024-11-01"^^xsd:date ;
+        dc:modified                     "2024-11-01"^^xsd:date ;
+        owl:versionInfo                 "2024" ;
+        rdfs:comment                    "Initial version of the published CEN-EN 17632 ontology. Consisting of SML part 1 and part 2" ;
+        dc:rights                       "Copyright © 2024 European Committee for Standardization" ;
+        dc:publisher                    <https://www.cencenelec.eu.nl> ;
+        dc:contributor                  <https://www.crow.nl> .
+
+    <https://www.cencenelec.eu.nl>  a   foaf:Organization ;
+        rdfs:label "European Committee for Standardization"@nl .
+    <https://www.crow.nl>   a   foaf:Organization ;
+        rdfs:label "Stichting CROW"@nl .
+} 
+
+where {
+    ?resource a ?o .
+    FILTER(!isBlank(?resource))
+    OPTIONAL {?resource skos:prefLabel ?resourceLabel}
+    OPTIONAL {?resource skos:definition ?resourceDef}
+} 
