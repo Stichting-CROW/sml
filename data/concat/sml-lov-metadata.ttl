@@ -421,21 +421,6 @@ sml-term:AbstractConcept
         skos:definition   "Concept that forms a manifestation and demarcation in an abstract space. An abstract concept has no life cycle"@en;
         skos:prefLabel    "Abstract concept"@en .
 
-<https://w3id.org/sml/>
-        rdf:type                       voaf:Vocabulary , owl:Ontology;
-        rdfs:comment                   "Initial version of the published CEN-EN 17632 ontology. Consisting of SML part 1 and part 2";
-        rdfs:label                     "CEN-EN 17632:2022/2024 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en;
-        dc:contributor                 <https://www.crow.nl>;
-        dc:description                 "Ontology which is a normative part of the European CEN-EN 17632 standard"@en;
-        dc:issued                      "2024-11-01"^^xsd:date;
-        dc:modified                    "2024-11-01"^^xsd:date;
-        dc:publisher                   <https://www.cencenelec.eu.nl>;
-        dc:rights                      "Copyright ┬⌐ 2024 European Committee for Standardization";
-        dc:title                       "CEN-EN 17632:2022/2024 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en;
-        vann:preferredNamespacePrefix  "sml";
-        vann:preferredNamespaceUri     "https://w3id.org/sml/def#";
-        owl:versionInfo                "2024" .
-
 <https://w3id.org/sml/shacl/def>
         rdf:type          owl:Ontology;
         rdfs:isDefinedBy  <https://w3id.org/sml/>;
@@ -2313,3 +2298,18 @@ sml-term:isImplementedBy
         skos:broader      sml-term:hasSolution;
         skos:definition   "The technical entity that implements a functional entity"@en;
         skos:prefLabel    "is implemented by"@en .
+
+<https://w3id.org/sml/>
+        rdf:type                       voaf:Vocabulary , owl:Ontology;
+        rdfs:comment                   "Initial version of the published CEN-EN 17632 ontology. Consisting of SML part 1 and part 2";
+        rdfs:label                     "CEN-EN 17632:2022/2024 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en;
+        dc:contributor                 <https://www.crow.nl>;
+        dc:description                 "Ontology which is a normative part of the European CEN-EN 17632 standard"@en;
+        dc:issued                      "2024-11-01"^^xsd:date;
+        dc:modified                    "2024-11-01"^^xsd:date;
+        dc:publisher                   <https://www.cencenelec.eu.nl>;
+        dc:rights                      "Copyright ┬⌐ 2024 European Committee for Standardization";
+        dc:title                       "CEN-EN 17632:2022/2024 'Building information modelling (BIM) - Semantic modelling and linking (SML)''"@en;
+        vann:preferredNamespacePrefix  "sml";
+        vann:preferredNamespaceUri     "https://w3id.org/sml/def#";
+        owl:versionInfo                "2024" .
