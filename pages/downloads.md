@@ -96,7 +96,7 @@ The standard CEN-EN 17632-1 is available at
 standard: part 1</a>.
 
 The standard CEN-EN 17632-2 at
-<a href='[https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_PROJECT,FSP_LANG_ID:76161,25&cs=11215E63F6DE6FE1E70AC6A77194B4E63](https://standards.cencenelec.eu/dyn/www/f?p=CEN:110:0::::FSP_PROJECT,FSP_ORG_ID:76161,1991542&cs=1D40D0701E13D1851B42C956BA0006B3C)' class='link dim underline-hover blue'>
+<a href='https://standards.cencenelec.eu/dyn/www/f?p=CEN:110:0::::FSP_PROJECT,FSP_ORG_ID:76161,1991542&cs=1D40D0701E13D1851B42C956BA0006B3C' class='link dim underline-hover blue'>
 standard: part 2</a>.
 
 
